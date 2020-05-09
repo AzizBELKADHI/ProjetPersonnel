@@ -1,0 +1,15 @@
+admin_home:
+    path:     /admin
+    defaults: { _controller: StageBundle:Stage:back }
+stage_back:
+    path:     /admin/internship
+    defaults: { _controller: StageBundle:Stage:showAllInternships }
+detail_stage_back:
+    path:     /admin/detailsInternship/{id}
+    defaults: { _controller: StageBundle:Stage:showInternships }
+delete_stage_back:
+    path:     /admin/deleteInternship/{id}
+    defaults: { _controller: StageBundle:Stage:deleteInternship }
+edit_stage_back:
+    path:     /admin/editInternship/{id}
+    defaults: { _controller: StageBundle:Stage:editInternship }
