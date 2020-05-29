@@ -3,6 +3,7 @@ imports:
     - { resource: security.yml }
     - { resource: services.yml }
     - { resource: "@StageBundle/Resources/config/services.yml" }
+    - { resource: "@UserBundle/Resources/config/services.yml" }
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
@@ -10,6 +11,8 @@ parameters:
     locale: en
 
 framework:
+    templating:
+        engines: ['twig']
     #esi: ~
     #translator: { fallbacks: ['%locale%'] }
     secret: '%secret%'
@@ -31,7 +34,6 @@ framework:
     assets: ~
     php_errors:
         log: true
-
 # Twig Configuration
 twig:
     debug: '%kernel.debug%'
@@ -70,3 +72,17 @@ swiftmailer:
 sensio_framework_extra:
    router:
         annotations: false
+
+fos_user:
+    db_driver: orm # other valid values are 'mongodb' and 'couchdb'
+    firewall_name: main
+    user_class: UserBundle\Entity\User
+    from_email:
+        address: "test@test.com" # change this
+        sender_name: "Test App"  # and this    registration:
+    registration:
+        form:
+            type: UserBundle\Form\RegistrationType
+    profile:
+        form:
+            type: UserBundle\Form\ProfileType

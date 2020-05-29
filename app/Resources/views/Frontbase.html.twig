@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Cite Culture Tunisie</title>
+    <title>Projet personnel</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
@@ -62,29 +62,10 @@
                         </ul>
                         <div class="login">
 
-                            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-
-
-                                <a href="{{ path('fos_user_security_logout') }}"class="login-btn">
-                                    <i class="fa fa-sign-out"></i><span class="d-none d-md-inline-block">Deconnexion</span>
-                                </a>
-                            {% else %}
-                                <a href="{{ path("fos_user_security_login") }}"  class="login-btn"><i class="fa fa-sign-in"></i><span class="d-none d-md-inline-block">Connexion</span></a>
-                                <a href="{{ path("fos_user_registration_register") }}" class="signup-btn"><i class="fa fa-user"></i><span class="d-none d-md-inline-block">S'inscrire</span></a>
-
-
-                            {% endif %}
-
-
 
 
                         </div>
-                        <ul class="social-custom list-inline">
-                            <li class="list-inline-item"><a href="https://www.facebook.com/Citedelaculturetunisie" target="_blank"><i class="fa fa-facebook"></i></a></li>
-                            <li class="list-inline-item"><a href="https://www.instagram.com/cite.culture.tunisie/" target="_blank"><i class="fa fa-instagram"></i></a></li>
-                            <li class="list-inline-item"><a href="https://twitter.com/cite_culture" target="_blank"><i class="fa fa-twitter"></i></a></li>
-                            <li class="list-inline-item"><a href="https://www.youtube.com/channel/UCKwCrwEBuDUHRswgoXpf1dg/featured" target="_blank"><i class="fa fa-youtube"></i></a></li>
-                        </ul>
+
                     </div>
                 </div>
             </div>
@@ -100,28 +81,41 @@
                 <button type="button" data-toggle="collapse" data-target="#navigation" class="navbar-toggler btn-template-outlined"><span class="sr-only">Toggle navigation</span><i class="fa fa-align-justify"></i></button>
                 <div id="navigation" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav ml-auto">
-                        <li class="nav-item "><a href="{{ path("front_home") }}"  class="">Accueil <b class="caret"></b></a>
-                        </li>
-                        <li class="nav-item dropdown menu-large"><a href="{{ path("front_departement_homepage") }}"  class="">Présentation <b class="caret"></b></a>
-                        </li>
-                        <li class="nav-item dropdown menu-large"><a href="{{ path("calendrier_evenement_front") }}"  class="">Programme <b class="caret"></b></a>
-                        </li>
-                        <li class="nav-item dropdown menu-large"><a href="{{ path("actualites_front") }}"  class="">Actualités <b class="caret"></b></a>
-                        </li>
-                        <li class="nav-item dropdown menu-large"><a href="{{ path("fidelite_homepage") }}"  class="">Service <b class="caret"></b></a>
-                        </li>
+
+
                         {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
 
-                            <li class="nav-item dropdown menu-large"><a href="{{ path("security_edit_profile") }}"  class="">Espace Membre <b class="caret"></b></a>
+
+                            <li class="nav-item dropdown menu-large">
+                                <a href="{{ path('fos_user_security_logout') }}"class="login-btn">
+                                    <i class="fa fa-sign-out"></i><span class="d-none d-md-inline-block">Logout</span>
+                                    <b class="caret"></b></a>
                             </li>
+                            <li class="nav-item dropdown menu-large"><a href="{{ path('add_internship') }}"  class="">Service <b class="caret"></b></a>
+                            </li>
+
+
+                            <li class="nav-item dropdown menu-large"><a href="{{ path('front_home') }}"  class="">Historic <b class="caret"></b></a>
+                            </li>
+
+                        {% else %}
+
+
+                            <li class="nav-item dropdown menu-large">
+                                <a href="{{ path("fos_user_security_login") }}"  class="login-btn"><i class="fa fa-sign-in"></i><span class="d-none d-md-inline-block">Connection</span></a>
+
+                            </li>
+
+
+                            <li class="nav-item dropdown menu-large">
+                                <a href="{{ path("fos_user_registration_register") }}" class="signup-btn"><i class="fa fa-user"></i><span class="d-none d-md-inline-block">Register</span></a>
+
+                            </li>
+
                         {% endif %}
 
 
-                        {% if is_granted("ROLE_ADMIN") %}
 
-                            <li class="nav-item dropdown menu-large"><a href="{{ path("admin_home") }}"  class="">Admin<b class="caret"></b></a>
-                            </li>
-                        {% endif %}
                         <!-- ========== Contact dropdown end ==================-->
                     </ul>
                 </div>
@@ -147,39 +141,18 @@
             <div class="row">
                 <div class="col-lg-4">
 
-
-                    <hr>
-                    <h4 class="h6">Newsletter</h4>
-                    <form method="post" action="{{ path("front_newsletter") }}">
-                        <div class="input-group">
-                            <input name="email" type="email" class="form-control">
-                            <div class="input-group-append">
-                                <button type="submit" class="btn btn-secondary"><i class="fa fa-send"></i></button>
-                            </div>
-                        </div>
-                    </form>
-                    <hr class="d-block d-lg-none">
                 </div>
                 <div class="col-lg-4">
-                    <center>  <h4 class="h6">
-                            Suivez nous</h4>
-                        <ul class="social-custom list-inline">
-                            <li class="list-inline-item"><a href="https://www.facebook.com/Citedelaculturetunisie" target="_blank"><i class="fa fa-facebook"></i></a></li>
-                            <li class="list-inline-item"><a href="https://www.instagram.com/cite.culture.tunisie/" target="_blank"><i class="fa fa-instagram"></i></a></li>
-                            <li class="list-inline-item"><a href="https://twitter.com/cite_culture" target="_blank"><i class="fa fa-twitter"></i></a></li>
-                            <li class="list-inline-item"><a href="https://www.youtube.com/channel/UCKwCrwEBuDUHRswgoXpf1dg/featured" target="_blank"><i class="fa fa-youtube"></i></a></li>
-                        </ul>
-                        <hr class="d-block d-lg-none"></center>
                 </div>
                 <div class="col-lg-4">
                     <h4 class="h6">Contact</h4>
                     <p class="text-uppercase"><strong>
-                            <i class="fa fa-location-arrow"></i>  Address : Rue Mohamed V, Tunis</strong><br>
-                        <i class="fa fa-phone"></i> Culture City :(+216) 70028330 <br>
-                        <i class="fa fa-envelope"></i> E-mail: <a href="mailto:contact.citeculture@mac.gov.tn?Subject=Contact%20Cite Culture" target="_top"><small>contact.citeculture@mac.gov.tn</small></a><br>
-                        <i class="fa fa-fax"></i>
-                        <strong>
-                            Fax :(+216) 70028312</strong></p>
+                            <i class="fa fa-location-arrow"></i> 71, rue Saint-Simon
+                            <br>
+                            94000 Créteil</strong><br>
+                        <i class="fa fa-phone"></i> Tél : +33 1 56 72 62 55 <br>
+
+
                     <hr class="d-block d-lg-none">
                 </div>
 
@@ -189,7 +162,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-4 text-center-md">
-                        <p>Copyright © 2019-2020 <a href="#">xCode</a>. All rights reserved.</p>
+                        <p>Copyright © 2019-2020. All rights reserved.</p>
                     </div>
 
                 </div>

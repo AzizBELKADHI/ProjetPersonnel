@@ -7,9 +7,12 @@ stage_back:
 detail_stage_back:
     path:     /admin/detailsInternship/{id}
     defaults: { _controller: StageBundle:Stage:showInternships }
-delete_stage_back:
-    path:     /admin/deleteInternship/{id}
-    defaults: { _controller: StageBundle:Stage:deleteInternship }
 edit_stage_back:
     path:     /admin/editInternship/{id}
     defaults: { _controller: StageBundle:Stage:editInternship }
+front_home:
+    path:     /index
+    defaults: { _controller: StageBundle:Stage:service }
+add_internship:
+    path:     /index/add
+    defaults: { _controller: StageBundle:Stage:addInternship }
